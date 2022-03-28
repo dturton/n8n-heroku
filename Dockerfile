@@ -14,7 +14,7 @@ COPY /n8n/lerna.json .
 COPY /n8n/package.json .
 COPY /n8n/packages/cli/ ./packages/cli/
 COPY /n8n/packages/core/ ./packages/core/
-COPY ./n8n/packages/design-system/ ./packages/design-system/
+COPY /n8n/packages/design-system/ ./packages/design-system/
 COPY /n8n/packages/editor-ui/ ./packages/editor-ui/
 COPY /n8n/packages/nodes-base/ ./packages/nodes-base/
 COPY /n8n/packages/workflow/ ./packages/workflow/
