@@ -11,8 +11,8 @@ RUN apk --update add --virtual build-dependencies python3 build-base ca-certific
 WORKDIR /data
 
 
-
 RUN npm config set legacy-peer-deps true
+RUN npm install -g lerna 
 RUN npm install @5stones/n8n-nodes-bigcommerce
 RUN npm install -g n8n
 RUN npm install --production --loglevel notice
