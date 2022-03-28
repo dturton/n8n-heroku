@@ -10,18 +10,11 @@ RUN apk --update add --virtual build-dependencies python3 build-base ca-certific
 
 WORKDIR /data
 
-COPY /n8n/lerna.json .
-COPY /n8n/package.json .
-COPY /n8n/packages/cli/ ./packages/cli/
-COPY /n8n/packages/core/ ./packages/core/
-COPY /n8n/packages/design-system/ ./packages/design-system/
-COPY /n8n/packages/editor-ui/ ./packages/editor-ui/
-COPY /n8n/packages/nodes-base/ ./packages/nodes-base/
-COPY /n8n/packages/workflow/ ./packages/workflow/
-RUN rm -rf node_modules ./n8n/packages/*/node_modules ./n8n/packages/*/dist
+
 
 RUN npm config set legacy-peer-deps true
 RUN npm install @5stones/n8n-nodes-bigcommerce
+RUN npm install -g n8n
 RUN npm install --production --loglevel notice
 RUN lerna bootstrap --hoist -- --production
 RUN npm run build
