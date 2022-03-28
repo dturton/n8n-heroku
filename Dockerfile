@@ -12,12 +12,8 @@ WORKDIR /data
 
 
 RUN npm config set legacy-peer-deps true
-RUN npm install -g lerna 
 RUN npm install @5stones/n8n-nodes-bigcommerce
 RUN npm install -g n8n
-RUN npm install --production --loglevel notice
-RUN lerna bootstrap --hoist -- --production
-RUN npm run build
 
 
 # 2. Start with a new clean image with just the code that is needed to run n8n
