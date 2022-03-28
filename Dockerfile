@@ -42,4 +42,4 @@ COPY --from=builder /data ./
 
 EXPOSE 5678/tcp
 
-CMD ["npm", "start"]
+RUN n8n
