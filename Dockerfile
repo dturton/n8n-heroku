@@ -39,7 +39,14 @@ ENV NODE_ICU_DATA /usr/local/lib/node_modules/full-icu
 
 COPY --from=builder /data ./
 
-
 EXPOSE 5678/tcp
 
-RUN n8n
+# copy start script to container
+COPY ./start.sh /
+
+# make the script executable
+RUN chmod +x /start.sh
+
+ENTRYPOINT ["tini", "--", "/start.sh"]
+
+EXPOSE 5678/tcp
