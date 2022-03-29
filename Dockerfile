@@ -17,11 +17,9 @@ RUN apk --update add --virtual build-dependencies python3 build-base && \
 RUN npm install -g @5stones/n8n-nodes-bigcommerce
 
 
-WORKDIR /data
+WORKDIR /app
 
-
-
-# copy start script to container
+	# copy start script to container
 COPY ./start.sh /
 
 # make the script executable
