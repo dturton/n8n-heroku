@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  
+  n8n:
+    image: etrivo/n8n
+    restart: always
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=${DB_POSTGRESDB_HOST}
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE}
+      - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
+      - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - QUEUE_BULL_REDIS_PASSWORD=${QUEUE_BULL_REDIS_PASSWORD}
+      - QUEUE_BULL_REDIS_USER=${QUEUE_BULL_REDIS_USER}
+      - QUEUE_BULL_REDIS_HOST=${QUEUE_BULL_REDIS_HOST}
+      - QUEUE_BULL_REDIS_PORT=${QUEUE_BULL_REDIS_PORT}
+    ports:
+      - 5678:5678
+    volumes:
+      - ~/.n8n:/home/node/.n8n
+
